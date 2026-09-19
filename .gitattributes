@@ -1,0 +1,5 @@
+# LF in every checkout, so Prettier's lf check passes on Windows autocrlf too.
+* text=auto eol=lf
+*.rbxl binary
+*.rbxm binary
+*.rbxmx binary

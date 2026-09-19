@@ -1,0 +1,23 @@
+{
+	"version": 1,
+	"flameworkVersion": "1.3.2",
+	"identifiers": {
+		"anvil:out/client/controllers/path-subscriptions@PathSubscriptions": "client/controllers/path-subscriptions@PathSubscriptions",
+		"anvil:out/client/controllers/player-data-controller@PlayerDataController": "client/controllers/player-data-controller@PlayerDataController",
+		"anvil:out/client/controllers/ui-controller@UiController": "client/controllers/ui-controller@UiController",
+		"anvil:out/client/features/coins/coins-hud-controller@CoinsHudController": "client/features/coins/coins-hud-controller@CoinsHudController",
+		"anvil:out/server/services/player/player-service@PlayerService": "server/services/player/player-service@PlayerService",
+		"anvil:out/server/services/player/player-profile@PlayerProfile": "server/services/player/player-profile@PlayerProfile",
+		"anvil:out/server/services/player/player-data-node@PlayerDataNode": "server/services/player/player-data-node@PlayerDataNode",
+		"anvil:out/server/features/coins/coins-wallet@CoinsWallet": "server/features/coins/coins-wallet@CoinsWallet",
+		"anvil:out/server/commands/admin@AdminCommands": "server/commands/admin@AdminCommands",
+		"anvil:out/server/services/leaderstats-service@LeaderstatsService": "server/services/leaderstats-service@LeaderstatsService",
+		"anvil:out/server/features/coins/coins-leaderstats@CoinsLeaderstats": "server/features/coins/coins-leaderstats@CoinsLeaderstats",
+		"anvil:out/server/features/coins/coins-service@CoinsService": "server/features/coins/coins-service@CoinsService",
+		"anvil:out/server/services/player/player-character@PlayerCharacter": "server/services/player/player-character@PlayerCharacter",
+		"anvil:out/client/controllers/player-data-store@PlayerDataStore": "client/controllers/player-data-store@PlayerDataStore",
+		"anvil:out/shared/network@GlobalEvents": "shared/network@GlobalEvents",
+		"anvil:out/shared/network@GlobalFunctions": "shared/network@GlobalFunctions"
+	},
+	"metadata": {}
+}

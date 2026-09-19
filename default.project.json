@@ -1,0 +1,138 @@
+{
+	"name": "anvil",
+	"globIgnorePaths": [
+		"**/package.json",
+		"**/tsconfig.json",
+		"**/*.spec.luau",
+		"**/*.spec.lua",
+		"**/jest.config.luau",
+		"**/jest-base.luau"
+	],
+	"tree": {
+		"$className": "DataModel",
+		"ServerScriptService": {
+			"$className": "ServerScriptService",
+			"TS": { "$path": "out/server" }
+		},
+		"ReplicatedStorage": {
+			"$className": "ReplicatedStorage",
+			"rbxts_include": {
+				"$path": "include",
+				"node_modules": {
+					"$className": "Folder",
+					"@rbxts": { "$path": "node_modules/@rbxts" },
+					"@rbxts-js": { "$path": "node_modules/@rbxts-js" },
+					"@flamework": { "$path": "node_modules/@flamework" }
+				}
+			},
+			"TS": { "$path": "out/shared" }
+		},
+		"Players": {
+			"$className": "Players",
+			"$properties": { "CharacterAutoLoads": false }
+		},
+		"StarterPlayer": {
+			"$className": "StarterPlayer",
+			"StarterPlayerScripts": {
+				"$className": "StarterPlayerScripts",
+				"TS": { "$path": "out/client" }
+			}
+		},
+		"Workspace": {
+			"$properties": {
+				"FilteringEnabled": true,
+				"StreamingEnabled": true
+			},
+			"Baseplate": {
+				"$className": "Part",
+				"$properties": {
+					"Anchored": true,
+					"Size": [512, 16, 512],
+					"CFrame": [0, -8, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1],
+					"Color": [0.2980392157, 0.7019607843, 0.2274509804],
+					"Material": "Plastic",
+					"TopSurface": "Smooth"
+				},
+				"Texture": {
+					"$className": "Texture",
+					"$properties": {
+						"Texture": "rbxassetid://5038203384",
+						"Face": "Top",
+						"Color3": [0.45098, 1, 0],
+						"Transparency": 0.85,
+						"StudsPerTileU": 20,
+						"StudsPerTileV": 20,
+						"ZIndex": 1
+					}
+				}
+			},
+			"SpawnLocation": {
+				"$className": "SpawnLocation",
+				"$properties": {
+					"Anchored": true,
+					"Size": [12, 1, 12],
+					"CFrame": [0, 0.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+				}
+			}
+		},
+		"Lighting": {
+			"$properties": {
+				"Technology": "Future",
+				"ClockTime": 14,
+				"GeographicLatitude": 41.7,
+				"Brightness": 3,
+				"ExposureCompensation": 0.25,
+				"Ambient": [0.27451, 0.266667, 0.258824],
+				"OutdoorAmbient": [0.529412, 0.498039, 0.45098],
+				"ColorShift_Top": [1, 0.937255, 0.839216],
+				"ColorShift_Bottom": [0, 0, 0],
+				"EnvironmentDiffuseScale": 0.5,
+				"EnvironmentSpecularScale": 0.5,
+				"GlobalShadows": true,
+				"ShadowSoftness": 0.25
+			},
+			"Atmosphere": {
+				"$className": "Atmosphere",
+				"$properties": {
+					"Density": 0.3,
+					"Offset": 0.25,
+					"Color": [0.780392, 0.666667, 0.419608],
+					"Decay": [0.415686, 0.439216, 0.490196],
+					"Glare": 0.15,
+					"Haze": 0.8
+				}
+			},
+			"Bloom": {
+				"$className": "BloomEffect",
+				"$properties": {
+					"Intensity": 0.35,
+					"Size": 24,
+					"Threshold": 1.8
+				}
+			},
+			"ColorCorrection": {
+				"$className": "ColorCorrectionEffect",
+				"$properties": {
+					"Brightness": 0.02,
+					"Contrast": 0.06,
+					"Saturation": 0.12,
+					"TintColor": [1, 0.980392, 0.941176]
+				}
+			},
+			"SunRays": {
+				"$className": "SunRaysEffect",
+				"$properties": {
+					"Intensity": 0.06,
+					"Spread": 0.85
+				}
+			}
+		},
+		"SoundService": {
+			"$className": "SoundService",
+			"$properties": { "RespectFilteringEnabled": true }
+		},
+		"TextChatService": {
+			"$properties": { "ChatVersion": "TextChatService" }
+		}
+	}
+}

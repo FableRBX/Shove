@@ -1,0 +1,53 @@
+{
+	"name": "anvil",
+	"version": "0.1.0",
+	"description": "Fork-per-game Roblox template built with roblox-ts and Flamework",
+	"scripts": {
+		"build": "rbxtsc",
+		"watch": "rbxtsc -w",
+		"assemble": "rbxtsc && rojo build default.project.json -o anvil.rbxl",
+		"open": "node scripts/open-studio.mjs anvil.rbxl",
+		"studio": "npm run assemble && npm run open",
+		"lint": "eslint src && prettier --check .",
+		"test": "rbxtsc && rojo build test.project.json -o test.rbxl && run-in-roblox --place test.rbxl --script scripts/run-tests.luau",
+		"test:setup": "node scripts/setup-test-fflag.mjs",
+		"format": "prettier --write ."
+	},
+	"license": "UNLICENSED",
+	"engines": {
+		"node": ">=24"
+	},
+	"dependencies": {
+		"@flamework/components": "^1.3.2",
+		"@flamework/core": "^1.3.2",
+		"@flamework/networking": "^1.3.2",
+		"@rbxts/centurion": "^1.0.1",
+		"@rbxts/centurion-ui": "^1.0.8",
+		"@rbxts/jest": "3.16.0-ts.1",
+		"@rbxts/jest-globals": "3.16.0-ts.1",
+		"@rbxts/loleris-replica": "^0.2.0",
+		"@rbxts/object-utils": "^1.0.4",
+		"@rbxts/pretty-react-hooks": "^0.6.4",
+		"@rbxts/profile-store": "^1.0.3",
+		"@rbxts/react": "17.3.7-ts.2",
+		"@rbxts/react-roblox": "17.3.7-ts.2",
+		"@rbxts/ripple": "^0.9.3",
+		"@rbxts/services": "^1.6.0",
+		"@rbxts/set-timeout": "^1.1.2",
+		"@rbxts/sift": "^0.0.11",
+		"@rbxts/signal": "^1.1.1",
+		"@rbxts/t": "^3.2.1"
+	},
+	"devDependencies": {
+		"@rbxts/compiler-types": "3.0.0-types.0",
+		"@rbxts/types": "^1.0.946",
+		"eslint": "^9.0.0",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-roblox-ts": "^1.4.1",
+		"prettier": "^3.9.6",
+		"rbxts-transformer-flamework": "^1.3.2",
+		"roblox-ts": "3.0.0",
+		"typescript": "^5.5.3",
+		"typescript-eslint": "^8.69.0"
+	}
+}
