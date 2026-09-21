@@ -5,7 +5,7 @@ click through dramatic shoving contests to throw increasingly enormous
 opponents off cliffs. Built with [roblox-ts](https://roblox-ts.com/) and
 [Flamework](https://flamework.fireboltofdeath.dev/) on the `anvil` template,
 which supplies the spine (persistence, replication, networking, UI mount,
-testing). The design is in `docs/Push-a-Giant-Game-Design-Document.docx`.
+testing). The design is in `docs/push-a-giant-gdd.md`.
 
 ## Stack
 

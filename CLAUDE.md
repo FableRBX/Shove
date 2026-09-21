@@ -3,7 +3,7 @@
 A Roblox strength simulator built with roblox-ts and Flamework: players do
 push-ups to grow into giants, then click through shoving contests to throw
 ever-larger opponents off cliffs. The design is in
-`docs/Push-a-Giant-Game-Design-Document.docx`.
+`docs/push-a-giant-gdd.md`.
 
 This repo is a fork of the `anvil` template. The spine it inherits
 (lifecycle, persistence, replication, networking, UI mount, testing) is
