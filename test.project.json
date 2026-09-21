@@ -1,5 +1,5 @@
 {
-	"name": "anvil-test",
+	"name": "push-a-giant-test",
 	"globIgnorePaths": ["**/package.json", "**/tsconfig.json", "**/*.server.luau", "**/*.client.luau"],
 	"tree": {
 		"$className": "DataModel",

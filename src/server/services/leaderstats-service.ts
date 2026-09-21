@@ -7,7 +7,7 @@ export class LeaderstatsService {
 
 		const existing = folder.FindFirstChild(name);
 		if (existing?.IsA("IntValue")) {
-			warn(`[anvil] leaderstat ${name} already exists for ${player.Name}`);
+			warn(`[push-a-giant] leaderstat ${name} already exists for ${player.Name}`);
 			return existing;
 		}
 

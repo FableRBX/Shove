@@ -1,8 +1,14 @@
-# anvil
+# Push a Giant
 
-A fork-per-game Roblox template built with roblox-ts and Flamework. Every game
-starts as a fork of this repo, so the spine is permanent: a mistake here cannot
-be un-shipped from games already forked. Invariants outrank features.
+A Roblox strength simulator built with roblox-ts and Flamework: players do
+push-ups to grow into giants, then click through shoving contests to throw
+ever-larger opponents off cliffs. The design is in
+`docs/Push-a-Giant-Game-Design-Document.docx`.
+
+This repo is a fork of the `anvil` template. The spine it inherits
+(lifecycle, persistence, replication, networking, UI mount, testing) is
+permanent infrastructure; gameplay is built on top of it as features.
+Invariants outrank features.
 
 ## Invariants
 
@@ -46,8 +52,8 @@ Flamework (services/controllers/components, DI, typed networking), ProfileStore
 ## Commands
 
 - `npm run build` / `npm run watch` — compile TS → Luau
-- `npm run assemble` — compile + build `anvil.rbxl`
-- `npm run studio` — assemble, then open `anvil.rbxl` in a new Studio
+- `npm run assemble` — compile + build `push-a-giant.rbxl`
+- `npm run studio` — assemble, then open `push-a-giant.rbxl` in a new Studio
   instance (`npm run open` opens without rebuilding). Every run opens a fresh
   window; an already-open Studio shows the build it loaded, not the rebuild.
 - `npm test` — compile, build test place, run Jest in-engine. Specs are

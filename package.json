@@ -1,12 +1,12 @@
 {
-	"name": "anvil",
+	"name": "push-a-giant",
 	"version": "0.1.0",
-	"description": "Fork-per-game Roblox template built with roblox-ts and Flamework",
+	"description": "Push a Giant: a Roblox strength simulator built with roblox-ts and Flamework",
 	"scripts": {
 		"build": "rbxtsc",
 		"watch": "rbxtsc -w",
-		"assemble": "rbxtsc && rojo build default.project.json -o anvil.rbxl",
-		"open": "node scripts/open-studio.mjs anvil.rbxl",
+		"assemble": "rbxtsc && rojo build default.project.json -o push-a-giant.rbxl",
+		"open": "node scripts/open-studio.mjs push-a-giant.rbxl",
 		"studio": "npm run assemble && npm run open",
 		"lint": "eslint src && prettier --check .",
 		"test": "rbxtsc && rojo build test.project.json -o test.rbxl && run-in-roblox --place test.rbxl --script scripts/run-tests.luau",

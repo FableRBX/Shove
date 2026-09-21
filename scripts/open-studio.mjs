@@ -1,5 +1,5 @@
 // Opens a place file in a NEW Roblox Studio instance.
-// Usage: node scripts/open-studio.mjs [place.rbxl]   (default: anvil.rbxl)
+// Usage: node scripts/open-studio.mjs [place.rbxl]   (default: push-a-giant.rbxl)
 //
 // A Studio that already has the place open keeps showing the copy it loaded;
 // a rebuild never reaches it. So every run opens a fresh instance, and any
@@ -8,7 +8,7 @@ import { existsSync, readdirSync, statSync } from "node:fs";
 import { basename, join, resolve } from "node:path";
 import { spawn } from "node:child_process";
 
-const place = resolve(process.argv[2] ?? "anvil.rbxl");
+const place = resolve(process.argv[2] ?? "push-a-giant.rbxl");
 if (!existsSync(place)) {
 	console.error(`Place not found: ${place} (run \`npm run assemble\` first)`);
 	process.exit(1);

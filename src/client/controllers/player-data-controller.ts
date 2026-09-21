@@ -33,14 +33,14 @@ export class PlayerDataController implements OnStart, PlayerDataStore {
 			replica.OnChange((action, path, value, detail) => {
 				this.subscriptions.dispatch({ action, path, value, detail });
 			});
-			print("[anvil] player data replica received");
+			print("[push-a-giant] player data replica received");
 
 			const listeners = this.readyListeners;
 			this.readyListeners = [];
 			const data = replica.Data as unknown as Readonly<PlayerData>;
 			for (const listener of listeners) {
 				const [ok, err] = pcall(listener, data);
-				if (!ok) warn(`[anvil] data ready listener failed: ${tostring(err)}`);
+				if (!ok) warn(`[push-a-giant] data ready listener failed: ${tostring(err)}`);
 			}
 		});
 

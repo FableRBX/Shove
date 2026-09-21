@@ -7,4 +7,4 @@ client
 	.then(() => {
 		CenturionUI.start(client, { activationKeys: [Enum.KeyCode.F2] });
 	})
-	.catch((err) => warn("[anvil] Centurion client failed to start:", err));
+	.catch((err) => warn("[push-a-giant] Centurion client failed to start:", err));

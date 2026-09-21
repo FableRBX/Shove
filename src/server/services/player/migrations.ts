@@ -26,7 +26,7 @@ export function migrate(data: PlayerData, steps: MigrationSteps = MIGRATIONS): P
 	while (staged.Version < LATEST_VERSION) {
 		const step = steps[staged.Version];
 		if (step === undefined) {
-			error(`[anvil] missing migration from profile version ${staged.Version}`);
+			error(`[push-a-giant] missing migration from profile version ${staged.Version}`);
 		}
 		step(staged);
 		staged.Version += 1;

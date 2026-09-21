@@ -5,4 +5,4 @@ Flamework.addPaths("src/client/features");
 
 Flamework.ignite();
 
-print("[anvil] client ignited");
+print("[push-a-giant] client ignited");

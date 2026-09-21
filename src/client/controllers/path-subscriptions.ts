@@ -45,7 +45,7 @@ export class PathSubscriptions {
 		for (const { path, listener } of candidates) {
 			if (!pathsOverlap(path, change.path)) continue;
 			const [ok, err] = pcall(listener, change);
-			if (!ok) warn(`[anvil] data listener failed at ${change.path.join(".")}: ${tostring(err)}`);
+			if (!ok) warn(`[push-a-giant] data listener failed at ${change.path.join(".")}: ${tostring(err)}`);
 		}
 	}
 

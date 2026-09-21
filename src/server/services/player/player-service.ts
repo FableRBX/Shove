@@ -24,13 +24,13 @@ export class PlayerService implements OnStart {
 		this.store = RunService.IsStudio() ? liveStore.Mock : liveStore;
 
 		ProfileStore.OnError.Connect((message, storeName, profileKey) =>
-			warn(`[anvil] ProfileStore error: ${message} [${storeName}/${profileKey}]`),
+			warn(`[push-a-giant] ProfileStore error: ${message} [${storeName}/${profileKey}]`),
 		);
 		ProfileStore.OnOverwrite.Connect((storeName, profileKey) =>
-			warn(`[anvil] ProfileStore overwrote non-profile data at ${storeName}/${profileKey}`),
+			warn(`[push-a-giant] ProfileStore overwrote non-profile data at ${storeName}/${profileKey}`),
 		);
 		ProfileStore.OnCriticalToggle.Connect((isCritical) =>
-			warn(`[anvil] ProfileStore critical state ${isCritical ? "entered" : "cleared"}`),
+			warn(`[push-a-giant] ProfileStore critical state ${isCritical ? "entered" : "cleared"}`),
 		);
 
 		// Declared in default.project.json so it applies before any script runs;

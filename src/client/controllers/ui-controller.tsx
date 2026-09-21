@@ -25,7 +25,7 @@ export class UiController implements OnStart {
 
 	/** Mounts the App shell. */
 	onStart(): void {
-		this.mount("AnvilApp", <App />, { ignoreGuiInset: true });
+		this.mount("PushAGiantApp", <App />, { ignoreGuiInset: true });
 	}
 
 	/**

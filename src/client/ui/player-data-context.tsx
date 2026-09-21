@@ -14,6 +14,6 @@ export function PlayerDataProvider(props: { store: PlayerDataStore; children?: R
  */
 export function usePlayerDataStore(): PlayerDataStore {
 	const store = useContext(PlayerDataContext);
-	if (store === undefined) throw "[anvil] no PlayerDataProvider: mount UI through UiController";
+	if (store === undefined) throw "[push-a-giant] no PlayerDataProvider: mount UI through UiController";
 	return store;
 }

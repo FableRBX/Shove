@@ -60,7 +60,7 @@ export class PlayerCharacter extends BaseComponent<{}, Player> implements OnStar
 		if (this.destroyed || !this.instance.IsDescendantOf(Players)) return;
 
 		const [ok, err] = pcall(() => this.instance.LoadCharacterAsync());
-		if (!ok) warn(`[anvil] LoadCharacterAsync failed for ${this.instance.Name}: ${tostring(err)}`);
+		if (!ok) warn(`[push-a-giant] LoadCharacterAsync failed for ${this.instance.Name}: ${tostring(err)}`);
 	}
 
 	private onCharacterAdded(character: Model): void {
@@ -70,7 +70,7 @@ export class PlayerCharacter extends BaseComponent<{}, Player> implements OnStar
 		const humanoid =
 			character.FindFirstChildOfClass("Humanoid") ?? (character.WaitForChild("Humanoid", 5) as Humanoid | undefined);
 		if (humanoid === undefined) {
-			warn(`[anvil] character without Humanoid for ${this.instance.Name}`);
+			warn(`[push-a-giant] character without Humanoid for ${this.instance.Name}`);
 			return;
 		}
 

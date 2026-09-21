@@ -34,7 +34,7 @@ export class PlayerProfile extends BaseComponent<{}, Player> implements OnStart 
 
 	/** The loaded profile. Only components bound to PlayerLoaded may assume it exists. */
 	public getProfile(): ProfileStore.Profile<PlayerData> {
-		assert(this.profile, `[anvil] profile not loaded for ${this.instance.Name}`);
+		assert(this.profile, `[push-a-giant] profile not loaded for ${this.instance.Name}`);
 		return this.profile;
 	}
 
@@ -59,7 +59,7 @@ export class PlayerProfile extends BaseComponent<{}, Player> implements OnStart 
 
 		if (profile === undefined) {
 			// Never substitute default data over a failed load; rejoining is the retry.
-			warn(`[anvil] profile failed to load for ${player.Name}`);
+			warn(`[push-a-giant] profile failed to load for ${player.Name}`);
 			player.Kick(LOAD_FAILED_MESSAGE);
 			return;
 		}
@@ -74,7 +74,7 @@ export class PlayerProfile extends BaseComponent<{}, Player> implements OnStart 
 			profile.Data = migrate(profile.Data);
 		});
 		if (!ok) {
-			warn(`[anvil] profile setup failed for ${player.Name}: ${tostring(err)}`);
+			warn(`[push-a-giant] profile setup failed for ${player.Name}: ${tostring(err)}`);
 			profile.EndSession();
 			player.Kick(LOAD_FAILED_MESSAGE);
 			return;
@@ -93,7 +93,7 @@ export class PlayerProfile extends BaseComponent<{}, Player> implements OnStart 
 
 		this.profile = profile;
 		CollectionService.AddTag(player, PLAYER_LOADED_TAG);
-		print(`[anvil] profile loaded for ${player.Name}`);
+		print(`[push-a-giant] profile loaded for ${player.Name}`);
 	}
 
 	override destroy(): void {

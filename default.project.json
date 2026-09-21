@@ -1,5 +1,5 @@
 {
-	"name": "anvil",
+	"name": "push-a-giant",
 	"globIgnorePaths": [
 		"**/package.json",
 		"**/tsconfig.json",

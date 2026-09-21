@@ -1,7 +1,7 @@
-# anvil
+# Push a Giant
 
-A fork-per-game Roblox template: permanent infrastructure every future game
-inherits by forking this repo.
+A Roblox strength simulator built on the `anvil` template, whose spine this
+repo inherits as permanent infrastructure.
 
 ## Language
 
