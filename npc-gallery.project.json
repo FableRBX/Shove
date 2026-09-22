@@ -1,0 +1,25 @@
+{
+	"name": "npc-gallery",
+	"tree": {
+		"$className": "DataModel",
+		"Workspace": {
+			"$properties": { "StreamingEnabled": false },
+			"NpcGallery": { "$path": "tools/npc-gallery/build/NpcGallery.rbxmx" }
+		},
+		"Lighting": {
+			"$className": "Lighting",
+			"$properties": {
+				"Technology": "ShadowMap",
+				"Brightness": 2,
+				"ClockTime": 14,
+				"GlobalShadows": true,
+				"Ambient": [0.5, 0.5, 0.5],
+				"OutdoorAmbient": [0.55, 0.55, 0.55]
+			}
+		},
+		"Players": {
+			"$className": "Players",
+			"$properties": { "CharacterAutoLoads": true }
+		}
+	}
+}

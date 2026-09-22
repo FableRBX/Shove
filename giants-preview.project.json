@@ -1,0 +1,44 @@
+{
+	"name": "giants-preview",
+	"tree": {
+		"$className": "DataModel",
+		"ServerStorage": {
+			"$className": "ServerStorage",
+			"Giants": { "$path": "assets/ServerStorage/Giants" },
+			"GiantSources": { "$path": "tools/giants/build/GiantSources.rbxmx" }
+		},
+		"ServerScriptService": {
+			"$className": "ServerScriptService",
+			"GiantsPreview": { "$path": "tools/giants/preview.luau" },
+			"GiantsPreviewRun": { "$path": "tools/giants/preview-run.server.luau" }
+		},
+		"Workspace": {
+			"$properties": { "StreamingEnabled": false },
+			"Floor": {
+				"$className": "Part",
+				"$properties": {
+					"Anchored": true,
+					"Size": [700, 2, 260],
+					"CFrame": [305, -1, 50, 1, 0, 0, 0, 1, 0, 0, 0, 1],
+					"Color": [0.42, 0.55, 0.35],
+					"Material": "Grass",
+					"TopSurface": "Smooth"
+				}
+			},
+			"Spawn": {
+				"$className": "SpawnLocation",
+				"$properties": {
+					"Anchored": true,
+					"Size": [8, 1, 8],
+					"CFrame": [60, 0.5, -56, -1, 0, 0, 0, 1, 0, 0, 0, -1],
+					"Neutral": true,
+					"Duration": 0
+				}
+			}
+		},
+		"Lighting": {
+			"$className": "Lighting",
+			"$properties": { "Technology": "ShadowMap", "Brightness": 2, "ClockTime": 14 }
+		}
+	}
+}

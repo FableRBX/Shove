@@ -68,6 +68,15 @@ restored files up-to-date and skip re-emitting them, and stale emits from old
 paths stay behind — specs then hang forever on `WaitForChild` for modules that
 never got compiled, or run twice.
 
+## Giants
+
+The 26 opponent prefabs live in `assets/ServerStorage/Giants/<Id>.rbxm` and
+map to `ServerStorage.Giants.<Id>`. They are generated: edit the `ROSTER` in
+`tools/giants/import_giants.py` and re-run it, never the `.rbxm` files.
+`docs/giants-roster.md` lists them; `docs/giant-scaling.md` is the reference
+for sizing them at runtime (two engine behaviours constrain how, and it names
+the open design decision). `giants-preview.project.json` is the visual check.
+
 ## Data
 
 Schema in `src/shared/types/player-data.ts` (interface and replica token
