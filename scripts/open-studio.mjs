@@ -85,6 +85,16 @@ function branchCopy(source) {
 
 const place = branchCopy(source);
 
+// Every run opens a fresh Studio, so the ones already open for this worktree
+// hold older builds. rsm closes them, keeping each worktree to one Studio. If
+// rsm isn't installed this does nothing, and it never fails the launch.
+function closeSuperseded(dir) {
+	const r = spawnSync("rsm", ["close", dir, "--keep-newest"], { encoding: "utf8" });
+	if (r.error) return;
+	const out = `${r.stdout ?? ""}${r.stderr ?? ""}`.trim();
+	if (out && !out.endsWith("Nothing to close.")) console.log(out);
+}
+
 // Roblox keeps every version it has ever downloaded under Versions/, and an
 // interrupted auto-update leaves a folder with the exe but only part of its
 // payload. AppSettings.xml ships with every complete install, so it marks a
@@ -143,4 +153,5 @@ if (process.platform === "darwin" && existsSync(macStudioBin)) {
 	console.log(
 		`Opened ${basename(place)} in a new Studio instance (PID ${child.pid}). Windows that were already open hold older builds.`,
 	);
+	closeSuperseded(dirname(place));
 }
