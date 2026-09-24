@@ -4,15 +4,86 @@
 // A Studio that already has the place open keeps showing the copy it loaded;
 // a rebuild never reaches it. So every run opens a fresh instance, and any
 // window that was already open is an older build.
-import { existsSync, readdirSync, statSync } from "node:fs";
-import { basename, join, resolve } from "node:path";
-import { spawn } from "node:child_process";
+import { copyFileSync, existsSync, readdirSync, statSync, unlinkSync } from "node:fs";
+import { basename, dirname, extname, join, resolve } from "node:path";
+import { spawn, spawnSync } from "node:child_process";
 
-const place = resolve(process.argv[2] ?? "push-a-giant.rbxl");
-if (!existsSync(place)) {
-	console.error(`Place not found: ${place} (run \`npm run assemble\` first)`);
+const source = resolve(process.argv[2] ?? "push-a-giant.rbxl");
+if (!existsSync(source)) {
+	console.error(`Place not found: ${source} (run \`npm run assemble\` first)`);
 	process.exit(1);
 }
+
+// Studio titles each window with the path of the place it opened, so a fixed
+// name like push-a-giant.rbxl makes every window look the same. Each run opens its
+// own copy instead, named <name>-<branch>-<n>.rbxl, so the title bar says which
+// feature the window is for. The copy is also what Studio saves back to, so a
+// save never lands on the file the next build overwrites.
+function currentBranch(dir) {
+	const git = (args) => {
+		const r = spawnSync("git", args, { cwd: dir, encoding: "utf8" });
+		return r.status === 0 ? r.stdout.trim() : "";
+	};
+	let branch = git(["rev-parse", "--abbrev-ref", "HEAD"]);
+	if (branch === "HEAD") branch = git(["rev-parse", "--short", "HEAD"]); // detached
+	// Branch names allow "/" and other characters a filename can't carry.
+	return branch.replace(/[^A-Za-z0-9._]+/g, "-").replace(/^-+|-+$/g, "") || "nobranch";
+}
+
+// What running Studios have open: their command lines (which name the place
+// before the window has a title) and their window titles (which follow a Save
+// As). Returns null when the process list can't be read, and not knowing must
+// never turn into deleting a place someone is working in.
+function openStudioPlaces() {
+	if (process.platform !== "win32") return null;
+	const r = spawnSync(
+		"powershell.exe",
+		[
+			"-NoProfile",
+			"-Command",
+			"Get-CimInstance Win32_Process -Filter \"Name='RobloxStudioBeta.exe'\" | ForEach-Object { $_.CommandLine; (Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue).MainWindowTitle }",
+		],
+		{ encoding: "utf8" },
+	);
+	if (r.error || r.status !== 0) return null;
+	return r.stdout.toLowerCase();
+}
+
+function branchCopy(source) {
+	const dir = dirname(source);
+	const ext = extname(source);
+	const stem = basename(source, ext);
+	const escape = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+	const copies = new RegExp(`^${escape(stem)}-.+-\\d+${escape(ext)}$`, "i");
+
+	// One copy per run would pile up forever, so delete the ones no Studio has
+	// open. Studio doesn't lock the file it loaded, so a failed delete can't be
+	// the safety net; the process list is.
+	const open = openStudioPlaces();
+	let removed = 0;
+	if (open !== null) {
+		for (const file of readdirSync(dir)) {
+			const full = join(dir, file);
+			if (!copies.test(file) || open.includes(full.toLowerCase())) continue;
+			try {
+				unlinkSync(full);
+				removed++;
+			} catch {
+				// Held by something we can't see. A stale copy left behind is free.
+			}
+		}
+	}
+	if (removed > 0) console.log(`Removed ${removed} old place ${removed === 1 ? "copy" : "copies"} that no Studio has open.`);
+
+	const branch = currentBranch(dir);
+	let n = 1;
+	while (existsSync(join(dir, `${stem}-${branch}-${n}${ext}`))) n++;
+	const copy = join(dir, `${stem}-${branch}-${n}${ext}`);
+	copyFileSync(source, copy);
+	return copy;
+}
+
+const place = branchCopy(source);
 
 // Roblox keeps every version it has ever downloaded under Versions/, and an
 // interrupted auto-update leaves a folder with the exe but only part of its
