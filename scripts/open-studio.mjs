@@ -73,7 +73,8 @@ function branchCopy(source) {
 			}
 		}
 	}
-	if (removed > 0) console.log(`Removed ${removed} old place ${removed === 1 ? "copy" : "copies"} that no Studio has open.`);
+	if (removed > 0)
+		console.log(`Removed ${removed} old place ${removed === 1 ? "copy" : "copies"} that no Studio has open.`);
 
 	const branch = currentBranch(dir);
 	let n = 1;
